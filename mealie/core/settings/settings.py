@@ -69,7 +69,7 @@ def get_secrets_dir() -> str | None:
 
     logger = get_logger()
 
-    secrets_dir = "/run/secrets"
+    secrets_dir = os.getenv("SECRETS_DIR", "/run/secrets")
 
     # Check that the secrets directory exists.
     if not os.path.exists(secrets_dir):
